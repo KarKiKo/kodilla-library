@@ -7,7 +7,6 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -19,4 +18,8 @@ public class RentDto {
     private Date rentDate;
     private Date returnDate;
 
+    public RentDto(Date rentDate, Date returnDate) {
+        this.rentDate = rentDate;
+        this.returnDate = returnDate;
+    }
 }

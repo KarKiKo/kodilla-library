@@ -9,20 +9,27 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity(name = "READERS")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
 public class Reader {
 
     @Id
     @GeneratedValue
-            //(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private String name;
     @Column
     private String surname;
     @Column (name = "ACCOUNT_CREATION_DATE")
-    private Date accountCreation;
+    private String accountCreation;
+    @OneToOne(mappedBy = "reader")
+    private Rent rent;
+
+    public Reader(String name, String surname, String accountCreation) {
+        this.name = name;
+        this.surname = surname;
+        this.accountCreation = accountCreation;
+    }
 }

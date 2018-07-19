@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "BOOKS")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -17,7 +17,6 @@ public class Book {
 
     @Id
     @GeneratedValue
-            //(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private String title;
@@ -25,12 +24,23 @@ public class Book {
     private String author;
     @Column(name = "ISSUE_YEAR")
     private int issueYear;
-/*    @OneToMany(
+    @OneToMany(
             targetEntity = CopyOfTheBook.class,
             mappedBy = "book",
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.EAGER,
+            orphanRemoval = true
     )
-    private List<CopyOfTheBook> copiesOfBook;*/
+    private List<CopyOfTheBook> copiesOfBook = new ArrayList<>();
 
+    public Book(String title, String author, int issueYear) {
+        this.title = title;
+        this.author = author;
+        this.issueYear = issueYear;
+    }
+
+    public void addCopy(CopyOfTheBook copy){
+        copy.setBook(this);
+        getCopiesOfBook().add(copy);
+    }
 }

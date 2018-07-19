@@ -3,7 +3,6 @@ package com.crud.library.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -13,4 +12,7 @@ public class CopyOfTheBookDto {
     private Book book;
     private String status;
 
+    public CopyOfTheBookDto(String status) {
+        this.status = status;
+    }
 }

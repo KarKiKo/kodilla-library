@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public class BookDto {
@@ -15,6 +14,11 @@ public class BookDto {
     private String title;
     private String author;
     private int issueYear;
-    //private List<CopyOfTheBookDto> copiesOfBook;
+    private List<CopyOfTheBookDto> copiesOfBook;
 
+    public BookDto(String title, String author, int issueYear) {
+        this.title = title;
+        this.author = author;
+        this.issueYear = issueYear;
+    }
 }

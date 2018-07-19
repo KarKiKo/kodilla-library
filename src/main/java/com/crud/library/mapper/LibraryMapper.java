@@ -11,7 +11,7 @@ public class LibraryMapper {
 
     public Reader mapToReader (final ReaderDto readerDto){
         return new Reader(
-                readerDto.getId(),
+                //readerDto.getId(),
                 readerDto.getName(),
                 readerDto.getSurname(),
                 readerDto.getAccountCreation()
@@ -20,7 +20,7 @@ public class LibraryMapper {
 
     public Book mapToBook (final BookDto bookDto){
         return new Book(
-                bookDto.getId(),
+                //bookDto.getId(),
                 bookDto.getTitle(),
                 bookDto.getAuthor(),
                 bookDto.getIssueYear()
@@ -32,7 +32,7 @@ public class LibraryMapper {
 
     public BookDto mapToBookDto (final Book book){
         return new BookDto(
-                book.getId(),
+                //book.getId(),
                 book.getTitle(),
                 book.getAuthor(),
                 book.getIssueYear()
@@ -44,8 +44,8 @@ public class LibraryMapper {
 
     public CopyOfTheBook mapToCopy (final CopyOfTheBookDto copyOfTheBookDto){
         return new CopyOfTheBook(
-                copyOfTheBookDto.getId(),
-                copyOfTheBookDto.getBook(),
+                //copyOfTheBookDto.getId(),
+                //copyOfTheBookDto.getBook(),
                 copyOfTheBookDto.getStatus()
         );
     }
@@ -53,8 +53,8 @@ public class LibraryMapper {
     public List<CopyOfTheBookDto> mapToCopyDtoList (final List<CopyOfTheBook> copyOfTheBookList){
         return copyOfTheBookList.stream()
             .map(c-> new CopyOfTheBookDto(
-                    c.getId(),
-                    c.getBook(),
+                    //c.getId(),
+                    //c.getBook(),
                     c.getStatus()
             ))
             .collect(Collectors.toList());
@@ -62,8 +62,8 @@ public class LibraryMapper {
 
     public CopyOfTheBookDto mapToCopyDto (final CopyOfTheBook copyOfTheBook) {
         return new CopyOfTheBookDto(
-                copyOfTheBook.getId(),
-                copyOfTheBook.getBook(),
+                //copyOfTheBook.getId(),
+                //copyOfTheBook.getBook(),
                 copyOfTheBook.getStatus()
         );
     }
@@ -71,7 +71,7 @@ public class LibraryMapper {
     public List<BookDto> mapToBookDtoList (final List<Book> bookList){
         return bookList.stream()
                 .map(b-> new BookDto(
-                        b.getId(),
+                       // b.getId(),
                         b.getTitle(),
                         b.getAuthor(),
                         b.getIssueYear()
@@ -84,9 +84,9 @@ public class LibraryMapper {
 
     public Rent mapToRent (final RentDto rentDto) {
         return new Rent(
-                rentDto.getId(),
-                rentDto.getCopyOfTheBook(),
-                rentDto.getReader(),
+                //rentDto.getId(),
+                //rentDto.getCopyOfTheBook(),
+                //rentDto.getReader(),
                 rentDto.getRentDate(),
                 rentDto.getReturnDate()
         );
@@ -94,9 +94,9 @@ public class LibraryMapper {
 
     public RentDto mapToRentDto (final Rent rent) {
         return new RentDto(
-                rent.getId(),
-                rent.getCopyOfTheBook(),
-                rent.getReader(),
+                //rent.getId(),
+                //rent.getCopyOfTheBook(),
+                //rent.getReader(),
                 rent.getRentDate(),
                 rent.getReturnDate()
         );

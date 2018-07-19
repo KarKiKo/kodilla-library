@@ -9,7 +9,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity(name = "RENTS")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -17,7 +16,6 @@ public class Rent {
 
     @Id
     @GeneratedValue
-            //(strategy = GenerationType.AUTO)
     private int id;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name ="COPY_ID")
@@ -30,4 +28,8 @@ public class Rent {
     @Column (name = "RETURN_DATE")
     private Date returnDate;
 
+    public Rent(Date rentDate, Date returnDate) {
+        this.rentDate = rentDate;
+        this.returnDate = returnDate;
+    }
 }
